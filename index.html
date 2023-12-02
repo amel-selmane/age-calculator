@@ -11,18 +11,20 @@
     <main>
         <h1 class="main-title">Calculateur d'âge</h1>
         <section class="agecalculator">
-            <form action="">
-                <div class="ageinput day">
-                    <label for="day">Day</label>
-                    <input type="number" name="day" id="day">
-                </div>
-                <div class="ageinput month">
-                    <label for="month">Month</label>
-                    <input type="number" name="month" id="month">
-                </div>
-                <div class="ageinput year">
-                    <label for="year">Year</label>
-                    <input type="number" name="year" id="year">
+            <form>
+                <div class="ageinputs">
+                    <div class="ageinput day">
+                        <label for="day">Day</label>
+                        <input type="number" name="day" id="day">
+                    </div>
+                    <div class="ageinput month">
+                        <label for="month">Month</label>
+                        <input type="number" name="month" id="month" pattern="/[1-12]/">
+                    </div>
+                    <div class="ageinput year">
+                        <label for="year">Year</label>
+                        <input type="number" name="year" id="year">
+                    </div>
                 </div>
                 <div class="validator">
                     <hr class="separator">

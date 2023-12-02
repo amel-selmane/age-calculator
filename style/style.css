@@ -1,4 +1,5 @@
 /* ------------------------ RESET CSS ------------------------ */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,800&display=swap");
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -50,13 +51,9 @@ table {
 }
 
 /* -------------------- RESET CSS - END -------------------- */
-@font-face {
-  font-family: "Poppins";
-  src: local("Poppins"), url("./fonts/Poppins-Regular.ttf") format("truetype");
-}
 body {
   background-color: hsl(0, 0%, 86%);
-  font-family: Poppins;
+  font-family: "Poppins", sans-serif;
 }
 
 main {
@@ -72,11 +69,38 @@ main .agecalculator {
   margin: 50px auto 0;
   padding: 30px;
   background-color: white;
-  max-width: 840px;
+  max-width: 650px;
   border-radius: 10px;
+  border-bottom-right-radius: 35%;
 }
-main .agecalculator .ageinput {
+main .agecalculator .ageinputs {
+  display: flex;
+  column-gap: 20px;
+  flex-wrap: wrap;
+}
+main .agecalculator .ageinputs .ageinput {
   display: inline-grid;
+  row-gap: 7px;
+}
+main .agecalculator .ageinputs .ageinput label {
+  color: hsl(0, 1%, 44%);
+  text-transform: uppercase;
+  font-size: 9px;
+  letter-spacing: 3px;
+}
+main .agecalculator .ageinputs .ageinput input {
+  padding: 10px 20px;
+  border: 1px solid hsl(0, 0%, 94%);
+  border-radius: 7px;
+  font-size: 32px;
+  max-width: 100px;
+  font-weight: 700;
+  transition: scale 0.3s;
+}
+main .agecalculator .ageinputs .ageinput input:focus {
+  border-color: hsl(259, 100%, 65%);
+  outline: hsl(259, 100%, 65%);
+  scale: 1.2;
 }
 main .agecalculator .validator {
   display: flex;
@@ -86,8 +110,8 @@ main .agecalculator .validator {
 main .agecalculator .validator .separator {
   width: 100%;
   border: unset;
-  background: hsl(0, 0%, 86%);
-  height: 1px;
+  background: hsl(0, 0%, 94%);
+  height: 2px;
 }
 main .agecalculator .validator button[type=submit] {
   border: unset;
@@ -95,22 +119,31 @@ main .agecalculator .validator button[type=submit] {
   display: grid;
   place-content: center;
   background-color: hsl(259, 100%, 65%);
-  transition: background-color 0.3s;
+  transition: background-color 0.5s;
   cursor: pointer;
 }
 main .agecalculator .validator button[type=submit] svg {
   padding: 20px;
   transition: scale 0.3s;
+  width: 46px;
+  height: 44px;
 }
 main .agecalculator .validator button[type=submit]:hover {
   background-color: black;
 }
 main .agecalculator .validator button[type=submit]:hover svg {
-  scale: 0.8;
+  scale: 1.1;
+}
+main .agecalculator .validator button[type=submit]:active svg {
+  scale: 0.7;
 }
 main .agecalculator .results .result {
-  font-family: Poppins;
   font-size: 60px;
+  font-weight: 800;
+  font-style: italic;
+}
+main .agecalculator .results .result:not(:last-of-type) {
+  margin-bottom: 15px;
 }
 main .agecalculator .results .result span {
   color: hsl(259, 100%, 65%);
