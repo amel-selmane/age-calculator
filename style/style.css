@@ -76,10 +76,10 @@ main .agecalculator {
 main .agecalculator .ageinputs {
   display: flex;
   column-gap: 20px;
-  flex-wrap: wrap;
 }
 main .agecalculator .ageinputs .ageinput {
-  display: inline-grid;
+  display: flex;
+  flex-direction: column;
   row-gap: 7px;
 }
 main .agecalculator .ageinputs .ageinput label {
@@ -101,6 +101,23 @@ main .agecalculator .ageinputs .ageinput input:focus {
   border-color: hsl(259, 100%, 65%);
   outline: hsl(259, 100%, 65%);
   scale: 1.2;
+}
+@media (max-width: 500px) {
+  main .agecalculator .ageinputs .ageinput input .ageinputs .ageinput input {
+    max-width: 50px;
+  }
+}
+main .agecalculator .ageinputs .ageinput .errormessage {
+  color: hsl(0, 100%, 67%);
+  font-size: 10px;
+  pointer-events: none;
+  transition: opacity 0.3s, visibility 0.3s;
+  opacity: 0;
+  visibility: hidden;
+}
+main .agecalculator .ageinputs .ageinput .errormessage.visible {
+  opacity: 1;
+  visibility: visible;
 }
 main .agecalculator .validator {
   display: flex;
