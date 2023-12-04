@@ -8,13 +8,30 @@ const years = document.querySelector('.years span');
 const months = document.querySelector('.months span');
 const days = document.querySelector('.days span');
 
-const isValidDay = (year, month, day) => {
-    let date = new Date(year, month - 1, day);
-    console.log(date.getMonth())
-    return date.getMonth() === month - 1 && date.getDate() === day;
+/**
+ * Checks if a given year is a leap year.
+ *
+ * @param {number} year - The year to check.
+ * @returns {boolean} Returns true if the year is a leap year, false otherwise.
+ */
+const isLeapYear = year => {
+    if (year % 4 !== 0) {
+      return false;
+    } else if (year % 100 !== 0) {
+      return true;
+    } else if (year % 400 !== 0) {
+      return false;
+    } else {
+      return true;
+    }
 }
 
-const isValidDate = () => {
+/**
+ * Check if the date entered is valid.
+ *
+ * @return {boolean} true if the date is valid, false otherwise.
+ */
+const isValidDate = (year, month, day) => {
     if (dayInput.value < 1 || dayInput.value > 31) {
         return false
     } else if (monthInput.value < 1 || monthInput.value > 12) {
@@ -22,18 +39,22 @@ const isValidDate = () => {
     } else if (yearInput.value < 1) {
         return false;
     }
+
+    let date = new Date(year, month, day);
+    return (
+        date.getFullYear() ,
+        date.getMonth() ,
+        date.getDate() 
+    );
 }
 
 /**
- * @param {string} date (format: YYYY-MM-DD) - The born date.
+ * @param {string} bornDate (format: YYYY-MM-DD) - The born date.
  */
 const calculateAge = bornDate => {
-    isValidDay(bornDate.getFullYear(), bornDate.getMonth() + 1, bornDate.getDate());
+    // isValidDay(bornDate.getFullYear(), bornDate.getMonth() + 1, bornDate.getDate());
 
-    if (isValidDate() === false) {
-        console.log('NIQUE TOI')
-        return
-    }
+    console.log("ICI", isValidDate(bornDate.getFullYear(), bornDate.getMonth() + 1, bornDate.getDate()))
 
     let ageDate = new Date(Date.now() - bornDate.getTime());
 

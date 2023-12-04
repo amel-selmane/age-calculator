@@ -72,10 +72,23 @@ main .agecalculator {
   max-width: 650px;
   border-radius: 10px;
   border-bottom-right-radius: 35%;
+  overflow: hidden;
+}
+@media screen and (max-width: 730px) {
+  main .agecalculator {
+    margin-inline: 12px;
+    padding-inline: 15px;
+  }
 }
 main .agecalculator .ageinputs {
   display: flex;
   column-gap: 20px;
+}
+@media screen and (max-width: 550px) {
+  main .agecalculator .ageinputs {
+    justify-content: center;
+    column-gap: 10px;
+  }
 }
 main .agecalculator .ageinputs .ageinput {
   display: flex;
@@ -87,6 +100,12 @@ main .agecalculator .ageinputs .ageinput label {
   text-transform: uppercase;
   font-size: 9px;
   letter-spacing: 3px;
+}
+@media screen and (max-width: 550px) {
+  main .agecalculator .ageinputs .ageinput label {
+    font-size: 7px;
+    font-weight: 700;
+  }
 }
 main .agecalculator .ageinputs .ageinput input {
   padding: 10px 20px;
@@ -102,9 +121,11 @@ main .agecalculator .ageinputs .ageinput input:focus {
   outline: hsl(259, 100%, 65%);
   scale: 1.2;
 }
-@media (max-width: 500px) {
-  main .agecalculator .ageinputs .ageinput input .ageinputs .ageinput input {
-    max-width: 50px;
+@media screen and (max-width: 550px) {
+  main .agecalculator .ageinputs .ageinput input {
+    max-width: 70px;
+    font-size: 22px;
+    padding-inline: 15px;
   }
 }
 main .agecalculator .ageinputs .ageinput .errormessage {
@@ -119,10 +140,21 @@ main .agecalculator .ageinputs .ageinput .errormessage.visible {
   opacity: 1;
   visibility: visible;
 }
+@media screen and (max-width: 550px) {
+  main .agecalculator .ageinputs .ageinput .errormessage {
+    font-size: 8px;
+  }
+}
 main .agecalculator .validator {
   display: flex;
   align-items: center;
   margin-top: 10px;
+  position: relative;
+}
+@media screen and (max-width: 550px) {
+  main .agecalculator .validator {
+    margin-top: 30px;
+  }
 }
 main .agecalculator .validator .separator {
   width: 100%;
@@ -145,6 +177,13 @@ main .agecalculator .validator button[type=submit] svg {
   width: 46px;
   height: 44px;
 }
+@media screen and (max-width: 550px) {
+  main .agecalculator .validator button[type=submit] svg {
+    width: 26px;
+    height: 24px;
+    padding: 10px;
+  }
+}
 main .agecalculator .validator button[type=submit]:hover {
   background-color: black;
 }
@@ -153,6 +192,18 @@ main .agecalculator .validator button[type=submit]:hover svg {
 }
 main .agecalculator .validator button[type=submit]:active svg {
   scale: 0.7;
+}
+@media screen and (max-width: 550px) {
+  main .agecalculator .validator button[type=submit] {
+    position: absolute;
+    left: 50%;
+    translate: -50%;
+  }
+}
+@media screen and (max-width: 550px) {
+  main .agecalculator .results {
+    margin-top: 30px;
+  }
 }
 main .agecalculator .results .result {
   font-size: 60px;
@@ -164,6 +215,11 @@ main .agecalculator .results .result:not(:last-of-type) {
 }
 main .agecalculator .results .result span {
   color: hsl(259, 100%, 65%);
+}
+@media screen and (max-width: 550px) {
+  main .agecalculator .results .result {
+    font-size: 40px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

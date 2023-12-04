@@ -76,10 +76,21 @@ main {
 		max-width: 650px;
 		border-radius: 10px;
 		border-bottom-right-radius: 35%;
+		overflow: hidden;
+
+		@media screen and (max-width: 730px) {
+			margin-inline: 12px;
+			padding-inline: 15px;
+		}
 
 		.ageinputs {
 			display: flex;
 			column-gap: 20px;
+
+			@media screen and (max-width: 550px) {
+				justify-content: center;
+				column-gap: 10px;
+			}
 
 			.ageinput {
 				display: flex;
@@ -91,6 +102,11 @@ main {
 					text-transform: uppercase;
 					font-size: 9px;
 					letter-spacing: 3px;
+
+					@media screen and (max-width: 550px) {
+						font-size: 7px;
+						font-weight: 700;
+					}
 				}
 	
 				input {
@@ -108,10 +124,10 @@ main {
 						scale: 1.2;
 					}
 
-					@media (max-width: 500px) {
-						.ageinputs .ageinput input {
-							max-width: 50px;
-						}
+					@media screen and (max-width: 550px) {
+						max-width: 70px;
+						font-size: 22px;
+						padding-inline: 15px;
 					}
 				}
 
@@ -127,6 +143,10 @@ main {
 						opacity: 1;
 						visibility: visible;
 					}
+
+					@media screen and (max-width: 550px) {
+						font-size: 8px;
+					}
 				}
 			}
 		}
@@ -135,6 +155,11 @@ main {
 			display: flex;
 			align-items: center;
 			margin-top: 10px;
+			position: relative;
+
+			@media screen and (max-width: 550px) {
+				margin-top: 30px;
+			}
 
 			.separator {
 				width: 100%;
@@ -157,6 +182,12 @@ main {
 					transition: scale .3s;
 					width: 46px;
 					height: 44px;
+
+					@media screen and (max-width: 550px) {
+						width: 26px;
+						height: 24px;
+						padding: 10px;
+					}
 				}
 
 				&:hover {
@@ -172,10 +203,20 @@ main {
 						scale: .7;
 					}
 				}
+
+				@media screen and (max-width: 550px) {
+					position: absolute;
+					left: 50%;
+					translate: -50%;
+				}
 			}
 		}
 
 		.results {
+			@media screen and (max-width: 550px) {
+				margin-top: 30px;
+			}
+
 			.result {
 				font-size: 60px;
 				font-weight: 800;
@@ -187,6 +228,10 @@ main {
 
 				span {
 					color: hsl(259, 100%, 65%);
+				}
+
+				@media screen and (max-width: 550px) {
+					font-size: 40px;
 				}
 			}
 		}
