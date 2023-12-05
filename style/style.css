@@ -76,7 +76,7 @@ main .agecalculator {
 }
 @media screen and (max-width: 730px) {
   main .agecalculator {
-    margin-inline: 12px;
+    margin-inline: 6px;
     padding-inline: 15px;
   }
 }
@@ -103,8 +103,7 @@ main .agecalculator .ageinputs .ageinput label {
 }
 @media screen and (max-width: 550px) {
   main .agecalculator .ageinputs .ageinput label {
-    font-size: 7px;
-    font-weight: 700;
+    font-weight: 800;
   }
 }
 main .agecalculator .ageinputs .ageinput input {
@@ -124,6 +123,7 @@ main .agecalculator .ageinputs .ageinput input:focus {
 @media screen and (max-width: 550px) {
   main .agecalculator .ageinputs .ageinput input {
     max-width: 70px;
+    width: 100%;
     font-size: 22px;
     padding-inline: 15px;
   }
@@ -179,7 +179,7 @@ main .agecalculator .validator button[type=submit] svg {
 }
 @media screen and (max-width: 550px) {
   main .agecalculator .validator button[type=submit] svg {
-    width: 26px;
+    width: 24px;
     height: 24px;
     padding: 10px;
   }
@@ -209,6 +209,7 @@ main .agecalculator .results .result {
   font-size: 60px;
   font-weight: 800;
   font-style: italic;
+  white-space: nowrap;
 }
 main .agecalculator .results .result:not(:last-of-type) {
   margin-bottom: 15px;

@@ -79,7 +79,7 @@ main {
 		overflow: hidden;
 
 		@media screen and (max-width: 730px) {
-			margin-inline: 12px;
+			margin-inline: 6px;
 			padding-inline: 15px;
 		}
 
@@ -104,8 +104,7 @@ main {
 					letter-spacing: 3px;
 
 					@media screen and (max-width: 550px) {
-						font-size: 7px;
-						font-weight: 700;
+						font-weight: 800;
 					}
 				}
 	
@@ -126,6 +125,7 @@ main {
 
 					@media screen and (max-width: 550px) {
 						max-width: 70px;
+						width: 100%;
 						font-size: 22px;
 						padding-inline: 15px;
 					}
@@ -184,7 +184,7 @@ main {
 					height: 44px;
 
 					@media screen and (max-width: 550px) {
-						width: 26px;
+						width: 24px;
 						height: 24px;
 						padding: 10px;
 					}
@@ -221,6 +221,7 @@ main {
 				font-size: 60px;
 				font-weight: 800;
 				font-style: italic;
+				white-space: nowrap; 
 
 				&:not(:last-of-type) {
 					margin-bottom: 15px;

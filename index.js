@@ -26,35 +26,40 @@ const isLeapYear = year => {
     }
 }
 
+// function isValidDate(year, month, day) {
+//     var date = new Date(year, month - 1, day);
+//     return date && date.getMonth() === month - 1 && date.getDate() == day;
+// }
+
 /**
  * Check if the date entered is valid.
  *
  * @return {boolean} true if the date is valid, false otherwise.
  */
 const isValidDate = (year, month, day) => {
+    const actualYear = new Date().getFullYear();
+
     if (dayInput.value < 1 || dayInput.value > 31) {
         return false
     } else if (monthInput.value < 1 || monthInput.value > 12) {
         return false;
-    } else if (yearInput.value < 1) {
-        return false;
+    } else if (yearInput.value < 1 || yearInput.value > actualYear) {
+        return false
     }
 
-    let date = new Date(year, month, day);
-    return (
-        date.getFullYear() ,
-        date.getMonth() ,
-        date.getDate() 
-    );
+    var date = new Date(year, month - 1, day);
+    console.log('IS VALID', date.getMonth(), month - 1)
+    return date && date.getMonth() === month - 1 && date.getDate() == day;
 }
 
 /**
- * @param {string} bornDate (format: YYYY-MM-DD) - The born date.
+ * @param {string} bornDate (format: timestamp) - The born date.
  */
 const calculateAge = bornDate => {
-    // isValidDay(bornDate.getFullYear(), bornDate.getMonth() + 1, bornDate.getDate());
+    isValidDate(bornDate.getFullYear(), bornDate.getMonth() + 1, bornDate.getDate())
 
-    console.log("ICI", isValidDate(bornDate.getFullYear(), bornDate.getMonth() + 1, bornDate.getDate()))
+    console.log("ICI", isValidDate(bornDate.getFullYear(), bornDate.getMonth() + 1, bornDate.getDate()));
+    console.log("DATE", new Date(`${bornDate.getFullYear()}, ${bornDate.getMonth() + 1}, ${bornDate.getDate()}`))
 
     let ageDate = new Date(Date.now() - bornDate.getTime());
 
@@ -75,6 +80,7 @@ document.querySelector('.validator button').addEventListener('click', e => {
 
     const inputDate = new Date(`${yearInput.value}-${monthInput.value}-${dayInput.value}`);
     
+    // Check if inputs are empty
     if (inputDate.toString() === 'Invalid Date') {
         [...document.querySelectorAll('.errormessage')].map(element => {
             element.classList.add('visible');
