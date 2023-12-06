@@ -1,3 +1,4 @@
 # Global
 .DS_STORE
 node_modules
+dist

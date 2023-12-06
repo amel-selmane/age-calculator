@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age calculator</title>
+    <!-- <script src="main.js" defer></script> -->
+</head>
+<body>
+    <main>
+        <h1 class="main-title">Age calculator</h1>
+        <section class="app-container">
+            <form class="app-form">
+                <div class="app-inputs">
+                    <div class="input-container day">
+                        <label for="day">Day</label>
+                        <input type="number" name="day" id="day" placeholder="DD">
+                        <small class="errormessage"></small>
+                    </div>
+                    <div class="input-container month">
+                        <label for="month">Month</label>
+                        <input type="number" name="month" id="month" pattern="/[1-12]/" placeholder="MM">
+                        <small class="errormessage"></small>
+                    </div>
+                    <div class="input-container year">
+                        <label for="year">Year</label>
+                        <input type="number" name="year" id="year" placeholder="YYYY">
+                        <small class="errormessage"></small>
+                    </div>
+                </div>
+                <div class="app-validator">
+                    <hr class="separator">
+                    <button type="submit" role="button" aria-label="submit the date of birth">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="46" height="44" viewBox="0 0 46 44"><g fill="none" stroke="#FFF" stroke-width="2"><path d="M1 22.019C8.333 21.686 23 25.616 23 44M23 44V0M45 22.019C37.667 21.686 23 25.616 23 44"/></g></svg>
+                    </button>
+                </div>
+            </form>
+            <div class="app-results">
+                <p class="app-result years"><span>--</span> years</p>
+                <p class="app-result months"><span>--</span> months</p>
+                <p class="app-result days"><span>--</span> days</p>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

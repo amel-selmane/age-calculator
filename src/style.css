@@ -1,4 +1,3 @@
-/* ------------------------ RESET CSS ------------------------ */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,800&display=swap");
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -50,175 +49,193 @@ table {
   border-spacing: 0;
 }
 
-/* -------------------- RESET CSS - END -------------------- */
+:root {
+  --off-white: hsl(0, 0%, 94%);
+  --purple: hsl(259, 100%, 65%);
+  --red-error: hsl(0, 100%, 67%);
+}
+
 body {
   background-color: hsl(0, 0%, 86%);
   font-family: "Poppins", sans-serif;
 }
 
 main {
-  max-width: 1440px;
   margin: 30px auto 0;
+  max-width: 1440px;
 }
-main .main-title {
+
+.main-title {
+  font-size: 2rem;
   text-align: center;
   text-decoration: underline;
-  font-size: 2rem;
 }
-main .agecalculator {
-  margin: 50px auto 0;
-  padding: 30px;
+
+.app-container {
   background-color: white;
-  max-width: 650px;
   border-radius: 10px;
   border-bottom-right-radius: 35%;
+  margin: 50px auto 0;
+  max-width: 650px;
   overflow: hidden;
+  padding: 30px;
 }
 @media screen and (max-width: 730px) {
-  main .agecalculator {
+  .app-container {
     margin-inline: 6px;
     padding-inline: 15px;
   }
 }
-main .agecalculator .ageinputs {
+
+.app-inputs {
   display: flex;
   column-gap: 20px;
 }
 @media screen and (max-width: 550px) {
-  main .agecalculator .ageinputs {
-    justify-content: center;
+  .app-inputs {
     column-gap: 10px;
+    justify-content: center;
   }
 }
-main .agecalculator .ageinputs .ageinput {
+
+.input-container {
   display: flex;
   flex-direction: column;
   row-gap: 7px;
 }
-main .agecalculator .ageinputs .ageinput label {
-  color: hsl(0, 1%, 44%);
-  text-transform: uppercase;
-  font-size: 9px;
-  letter-spacing: 3px;
+.input-container.has-error input {
+  border-color: var(--red-error);
 }
-@media screen and (max-width: 550px) {
-  main .agecalculator .ageinputs .ageinput label {
-    font-weight: 800;
-  }
+.input-container.has-error label {
+  color: var(--red-error);
 }
-main .agecalculator .ageinputs .ageinput input {
-  padding: 10px 20px;
-  border: 1px solid hsl(0, 0%, 94%);
-  border-radius: 7px;
-  font-size: 32px;
-  max-width: 100px;
-  font-weight: 700;
-  transition: scale 0.3s;
-}
-main .agecalculator .ageinputs .ageinput input:focus {
-  border-color: hsl(259, 100%, 65%);
-  outline: hsl(259, 100%, 65%);
-  scale: 1.2;
-}
-@media screen and (max-width: 550px) {
-  main .agecalculator .ageinputs .ageinput input {
-    max-width: 70px;
-    width: 100%;
-    font-size: 22px;
-    padding-inline: 15px;
-  }
-}
-main .agecalculator .ageinputs .ageinput .errormessage {
-  color: hsl(0, 100%, 67%);
-  font-size: 10px;
-  pointer-events: none;
-  transition: opacity 0.3s, visibility 0.3s;
-  opacity: 0;
-  visibility: hidden;
-}
-main .agecalculator .ageinputs .ageinput .errormessage.visible {
+.input-container.has-error .errormessage {
   opacity: 1;
   visibility: visible;
 }
+.input-container .errormessage {
+  color: var(--red-error);
+  font-size: 10px;
+  min-height: 10px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s, visibility 0.3s;
+  visibility: hidden;
+}
 @media screen and (max-width: 550px) {
-  main .agecalculator .ageinputs .ageinput .errormessage {
+  .input-container .errormessage {
     font-size: 8px;
   }
 }
-main .agecalculator .validator {
+
+.input-container label {
+  color: hsl(0, 1%, 44%);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+
+.input-container input {
+  border: 1px solid var(--off-white);
+  border-radius: 7px;
+  font-size: 32px;
+  font-weight: 700;
+  max-width: 100px;
+  padding: 10px 20px;
+  transition: scale 0.3s, border-color 0.3s;
+}
+.input-container input:focus {
+  border-color: var(--purple);
+  outline: var(--purple);
+  scale: 1.2;
+}
+@media screen and (max-width: 550px) {
+  .input-container input {
+    font-size: 22px;
+    max-width: 70px;
+    padding-inline: 15px;
+    width: 100%;
+  }
+}
+
+.app-validator {
   display: flex;
   align-items: center;
   margin-top: 10px;
   position: relative;
 }
 @media screen and (max-width: 550px) {
-  main .agecalculator .validator {
+  .app-validator {
     margin-top: 30px;
   }
 }
-main .agecalculator .validator .separator {
+.app-validator .separator {
   width: 100%;
   border: unset;
-  background: hsl(0, 0%, 94%);
+  background: var(--off-white);
   height: 2px;
 }
-main .agecalculator .validator button[type=submit] {
+.app-validator button[type=submit] {
+  background-color: var(--purple);
   border: unset;
   border-radius: 50%;
+  cursor: pointer;
   display: grid;
   place-content: center;
-  background-color: hsl(259, 100%, 65%);
   transition: background-color 0.5s;
-  cursor: pointer;
 }
-main .agecalculator .validator button[type=submit] svg {
+.app-validator button[type=submit] svg {
+  height: 44px;
   padding: 20px;
   transition: scale 0.3s;
   width: 46px;
-  height: 44px;
 }
 @media screen and (max-width: 550px) {
-  main .agecalculator .validator button[type=submit] svg {
-    width: 24px;
+  .app-validator button[type=submit] svg {
     height: 24px;
     padding: 10px;
+    width: 24px;
   }
 }
-main .agecalculator .validator button[type=submit]:hover {
+.app-validator button[type=submit]:hover {
   background-color: black;
 }
-main .agecalculator .validator button[type=submit]:hover svg {
+.app-validator button[type=submit]:hover svg {
   scale: 1.1;
 }
-main .agecalculator .validator button[type=submit]:active svg {
+.app-validator button[type=submit]:active svg {
   scale: 0.7;
 }
 @media screen and (max-width: 550px) {
-  main .agecalculator .validator button[type=submit] {
+  .app-validator button[type=submit] {
     position: absolute;
     left: 50%;
     translate: -50%;
   }
 }
+
 @media screen and (max-width: 550px) {
-  main .agecalculator .results {
+  .app-results {
     margin-top: 30px;
   }
 }
-main .agecalculator .results .result {
+
+.app-results .app-result {
   font-size: 60px;
-  font-weight: 800;
   font-style: italic;
+  font-weight: 800;
   white-space: nowrap;
 }
-main .agecalculator .results .result:not(:last-of-type) {
+.app-results .app-result:not(:last-of-type) {
   margin-bottom: 15px;
 }
-main .agecalculator .results .result span {
-  color: hsl(259, 100%, 65%);
+.app-results .app-result span {
+  color: var(--purple);
 }
 @media screen and (max-width: 550px) {
-  main .agecalculator .results .result {
+  .app-results .app-result {
     font-size: 40px;
   }
 }

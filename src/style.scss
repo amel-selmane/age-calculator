@@ -1,0 +1,202 @@
+@import '../_reset.scss';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,800&display=swap');
+
+:root {
+	--off-white: hsl(0, 0%, 94%);
+	--purple: hsl(259, 100%, 65%);
+	--red-error: hsl(0, 100%, 67%);
+}
+
+body {
+	background-color: hsl(0, 0%, 86%);
+	font-family: "Poppins", sans-serif; 
+}
+
+main {
+	margin: 30px auto 0;
+	max-width: 1440px;
+}
+
+.main-title {
+	font-size: 2rem;
+	text-align: center;
+	text-decoration: underline;
+}
+
+.app-container {
+	background-color: white;
+	border-radius: 10px;
+	border-bottom-right-radius: 35%;
+	margin: 50px auto 0;
+	max-width: 650px;
+	overflow: hidden;
+	padding: 30px;
+
+	@media screen and (max-width: 730px) {
+		margin-inline: 6px;
+		padding-inline: 15px;
+	}
+}
+
+.app-inputs {
+	display: flex;
+	column-gap: 20px;
+
+	@media screen and (max-width: 550px) {
+		column-gap: 10px;
+		justify-content: center;
+	}
+}
+
+.input-container {
+	display: flex;
+	flex-direction: column;
+	row-gap: 7px;
+
+	&.has-error {
+		input {
+			border-color: var(--red-error);
+		}
+
+		label {
+			color: var(--red-error);
+		}
+
+		.errormessage {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+
+	.errormessage {
+		color: var(--red-error);
+		font-size: 10px;
+		min-height: 10px;
+		opacity: 0;
+		pointer-events: none;
+		transition: opacity .3s, visibility .3s;
+		visibility: hidden;
+
+		@media screen and (max-width: 550px) {
+			font-size: 8px;
+		}
+	}
+}
+
+.input-container label {
+	color: hsl(0, 1%, 44%);
+	font-size: 9px;
+	font-weight: 800;
+	letter-spacing: 3px;
+	text-transform: uppercase;
+	transition: color .3s;
+}
+
+.input-container input {
+	border: 1px solid var(--off-white);
+	border-radius: 7px;
+	font-size: 32px;
+	font-weight: 700;
+	max-width: 100px;
+	padding: 10px 20px;
+	transition: scale .3s, border-color .3s;
+
+	&:focus {
+		border-color: var(--purple);
+		outline: var(--purple);
+		scale: 1.2;
+	}
+
+	@media screen and (max-width: 550px) {
+		font-size: 22px;
+		max-width: 70px;
+		padding-inline: 15px;
+		width: 100%;
+	}
+}
+
+.app-validator {
+	display: flex;
+	align-items: center;
+	margin-top: 10px;
+	position: relative;
+
+	@media screen and (max-width: 550px) {
+		margin-top: 30px;
+	}
+
+	.separator {
+		width: 100%;
+		border: unset;
+		background: var(--off-white);
+		height: 2px;
+	}
+
+	button[type=submit] {
+		background-color: var(--purple);
+		border: unset;
+		border-radius: 50%;
+		cursor: pointer;
+		display: grid;
+		place-content: center;
+		transition: background-color .5s;
+		
+		svg {
+			height: 44px;
+			padding: 20px;
+			transition: scale .3s;
+			width: 46px;
+
+			@media screen and (max-width: 550px) {
+				height: 24px;
+				padding: 10px;
+				width: 24px;
+			}
+		}
+
+		&:hover {
+			background-color: black;
+
+			svg {
+				scale: 1.1;
+			}
+		}
+
+		&:active {
+			svg {
+				scale: .7;
+			}
+		}
+
+		@media screen and (max-width: 550px) {
+			position: absolute;
+			left: 50%;
+			translate: -50%;
+		}
+	}
+}
+
+.app-results {
+	@media screen and (max-width: 550px) {
+		margin-top: 30px;
+	}
+}
+
+.app-results .app-result {
+	font-size: 60px;
+	font-style: italic;
+	font-weight: 800;
+	white-space: nowrap; 
+
+	&:not(:last-of-type) {
+		margin-bottom: 15px;
+	}
+
+	span {
+		color: var(--purple);
+	}
+
+	@media screen and (max-width: 550px) {
+		font-size: 40px;
+	}
+}
