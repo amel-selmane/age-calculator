@@ -7,9 +7,9 @@ const monthInput = document.querySelector('#month');
 const yearInput = document.querySelector('#year');
 
 // Get result elements
-const years = document.querySelector('.years span');
-const months = document.querySelector('.months span');
-const days = document.querySelector('.days span');
+const yearsResult = document.querySelector('.years span');
+const monthsResult = document.querySelector('.months span');
+const daysResult = document.querySelector('.days span');
 
 /**
  * @param {string} bornDate (format: timestamp) - The born date.
@@ -27,6 +27,21 @@ const calculateAge = bornDate => {
     }
 }
 
+/**
+ * Animates a counter on an HTML element.
+ *
+ * @param {HTMLElement} htmlElementToAnimate - The HTML element to animate.
+ * @param {number} ageValue - The value to animate the counter up to.
+ * @param {number} [intervalValue=100] - The interval between each increment of the counter.
+ */
+const animateCounter = (htmlElementToAnimate, ageValue, intervalValue = 100) => {
+    let counter = 0;
+    const interval = setInterval(() => {
+        htmlElementToAnimate.textContent = ++counter;
+        if (counter >= ageValue) clearInterval(interval);
+    }, intervalValue);
+}
+
 // Button click event
 document.querySelector('.app-form').addEventListener('submit', e => {
     e.preventDefault();
@@ -35,26 +50,12 @@ document.querySelector('.app-form').addEventListener('submit', e => {
     if (isValidDate(yearInput.value, monthInput.value, dayInput.value)) {
         const inputDate = new Date(`${yearInput.value}-${monthInput.value}-${dayInput.value}`);
 
-        let daysCounter = 0;
-        const daysInterval = setInterval(() => {
-            days.textContent = ++daysCounter;
-            if (daysCounter === calculateAge(inputDate).days) clearInterval(daysInterval);
-        }, 100);
-        
-        let monthsCounter = 0;
-        const monthsInterval = setInterval(() => {
-            months.textContent = ++monthsCounter;
-            if (monthsCounter === calculateAge(inputDate).months) clearInterval(monthsInterval);
-        }, 100);
-        
-        let yearsCounter = 0;
-        const yearsInterval = setInterval(() => {
-            years.textContent = ++yearsCounter;
-            if (yearsCounter === calculateAge(inputDate).years) clearInterval(yearsInterval);
-        }, 10);
+        animateCounter(daysResult, calculateAge(inputDate).days, 100);
+        animateCounter(monthsResult, calculateAge(inputDate).months, 100);
+        animateCounter(yearsResult, calculateAge(inputDate).years, 10);
     } else {
-        years.textContent = "--";
-        months.textContent = "--";
-        days.textContent = "--";
+        yearsResult.textContent = "--";
+        monthsResult.textContent = "--";
+        daysResult.textContent = "--";
     };
 });
