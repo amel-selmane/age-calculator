@@ -1,5 +1,10 @@
 # age-calculator
 
-Run `pnpm start` to run the project
+1) Install the project : `npm i`
+2) Run the project : `pnpm start` (or `npm start`)
+3) Open your live server
 
-And work on `/src` folder (HTML, SCSS and JS files)
+Project made with : 
+* HTML / CSS
+* SCSS
+* Javascript
