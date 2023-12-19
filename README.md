@@ -1,4 +1,4 @@
-# age-calculator
+# Age calculator
 
 1) Install the project : `npm i`
 2) Run the project : `pnpm start` (or `npm start`)
