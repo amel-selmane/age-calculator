@@ -23,3 +23,11 @@ jobs:
       run: |
         npm install
         npx webpack
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Deploy GitHub Pages site
+        uses: actions/deploy-pages@v4
