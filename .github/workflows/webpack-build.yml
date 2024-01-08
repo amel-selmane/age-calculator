@@ -1,0 +1,25 @@
+name: NodeJS with Webpack workflow
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Get the repository
+      uses: actions/checkout@v3
+
+    - name: Install and setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 21.5.0
+
+    - name: Build the project
+      run: |
+        npm install
+        npx webpack
