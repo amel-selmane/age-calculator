@@ -13,14 +13,20 @@ body {
 }
 
 main {
-	margin: 30px auto 0;
+	margin: 35px auto 0;
 	max-width: 1440px;
 }
 
 .main-title {
-	font-size: 2rem;
+	font-family: "Poppins", sans-serif;
+	font-weight: 700;
+	font-size: 2.5rem;
 	text-align: center;
-	text-decoration: underline;
+	transition: font-size 300ms;
+
+	@media screen and (max-width: 550px) {
+		font-size: 1.8rem;
+	}
 }
 
 .app-container {
@@ -32,7 +38,7 @@ main {
 	overflow: hidden;
 	padding: 30px;
 
-	@media screen and (max-width: 730px) {
+	@media screen and (max-width: 710px) {
 		margin-inline: 6px;
 		padding-inline: 15px;
 	}
@@ -41,10 +47,10 @@ main {
 .app-inputs {
 	display: flex;
 	column-gap: 20px;
+	justify-content: center;
 
 	@media screen and (max-width: 550px) {
 		column-gap: 10px;
-		justify-content: center;
 	}
 }
 
@@ -74,7 +80,7 @@ main {
 		min-height: 10px;
 		opacity: 0;
 		pointer-events: none;
-		transition: opacity .3s, visibility .3s;
+		transition: opacity .3s, visibility .3s, font-size 300ms;
 		visibility: hidden;
 
 		@media screen and (max-width: 550px) {
@@ -95,11 +101,11 @@ main {
 .input-container input {
 	border: 1px solid var(--off-white);
 	border-radius: 7px;
-	font-size: 32px;
+	font-size: 30px;
 	font-weight: 700;
 	max-width: 100px;
 	padding: 10px 20px;
-	transition: scale .3s, border-color .3s;
+	transition: scale .3s, border-color .3s, font-size 300ms;
 
 	&:focus {
 		border-color: var(--purple);
@@ -108,7 +114,7 @@ main {
 	}
 
 	@media screen and (max-width: 550px) {
-		font-size: 22px;
+		font-size: 20px;
 		max-width: 70px;
 		padding-inline: 15px;
 		width: 100%;
@@ -186,7 +192,8 @@ main {
 	font-size: 60px;
 	font-style: italic;
 	font-weight: 800;
-	white-space: nowrap; 
+	white-space: nowrap;
+	transition: font-size 300ms;
 
 	&:not(:last-of-type) {
 		margin-bottom: 15px;
