@@ -7,7 +7,6 @@
     "start": "npm-run-all --parallel webpack:serve sass:watch",
     "webpack:serve": "webpack serve --open",
     "sass:watch": "sass --watch src/style.scss src/style.css",
-    "watch": "webpack --watch",
     "build": "webpack"
   },
   "author": "",
